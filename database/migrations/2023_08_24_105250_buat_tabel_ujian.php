@@ -17,9 +17,9 @@ class BuatTabelUjian extends Migration
             $table->id();
             $table->string('nama_uian',100);
             $table->string('nama_mapel',100);
-            $table->string('jumlah_soal',100);
-            $table->string('durasi');
-            $table->string('deskripsi');
+            $table->integer('jumlah_soal');
+            $table->integer('durasi');
+            $table->text('deskripsi');
             $table->enum('acak_soal',['Y','N']);
             $table->enum('acak_jawaban',['Y','N']);
             $table->enum('tampilan_hasil',['Y','N']);

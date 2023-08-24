@@ -4,6 +4,7 @@ import { Inertia } from '@inertiajs/inertia';
 
 
 import Layout from './../../Shared/FrontLayout';
+import { InertiaLink } from '@inertiajs/inertia-react';
 
 
 export default (props) => {
@@ -22,23 +23,31 @@ export default (props) => {
                 <div className="card-body">
                     <table className="table">
                         <tbody>
-                        <tr><td><b>No.Peserta</b></td><td>: {props.siswa.no_ujian}</td></tr>
-                        <tr><td><b>NIS</b></td><td>: {props.siswa.nis}</td></tr>
-                        <tr><td><b>Nama</b></td><td>: {props.siswa.nama_siswa}</td></tr>
+                        <tr><td><b>No.Ujian</b></td><td>: {props.siswa.no_ujian}</td></tr>
+                        <tr><td><b>Nama</b></td><td>: {props.siswa.nama_peserta}</td></tr>
+                        <tr><td><b>Nama Sekolah</b></td><td>: {props.siswa.nama_Sekolah}</td></tr>
                         <tr><td><b>Kelas</b></td><td>: {props.siswa.kelas}</td></tr>
                         <tr><td><b>Nama Ujian</b></td><td>: {props.kategori.nama_kategori}</td></tr>
+                        <tr><td><b>Nama Mapel</b></td><td>: {props.kategori.nama_mapel}</td></tr>
                         <tr><td><b>Mulai Mengerjakan</b></td><td>: {props.nilai.mulai}</td></tr>
-                        <tr><td><b>Selesai Mengerjakan</b></td><td>: {props.nilai.selesai}</td></tr>
+                        <tr><td><b>Selesai Mengerjakan</b></td><td>: {props.nilai.selesai}</td></tr> 
+                        {props.ujian.tampilkan_hasil == 'Y' && (
+                          <>
                         <tr><td><b>Jml. Benar</b></td><td>: {props.nilai.jml_benar}</td></tr>
-                        <tr><td><b>Nilai</b></td><td>: {props.nilai.nilai}</td></tr>
+                        <tr><td><b>Nilai</b></td><td>: {props.nilai.nilai}</td></tr> 
+
+                          </>
+                        
+                        )}
+                       
                         <tr><td></td><td></td></tr>
                         </tbody>
                     </table>   
                 </div>
                 <div className="card-footer">                    
-                  <a onClick={()=>Inertia.get(route('ujian.kategori'))} className="btn float-right btn-success">
-                      Kembali
-                  </a>                       
+                  <InertiaLink href={route('home')} className="btn float-right btn-success">
+                    Daftar Ujian
+                  </InertiaLink>                    
                 </div>
             </div>
         </div>

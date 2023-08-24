@@ -20,9 +20,9 @@ class BuatTabelUjian extends Migration
             $table->string('jumlah_soal',100);
             $table->string('durasi');
             $table->string('deskripsi');
-            $table->string('acak_soal',['Y','N']);
-            $table->string('acak_jawaban',['Y','N']);
-            $table->string('tampilan_hasil',['Y','N']);
+            $table->enum('acak_soal',['Y','N']);
+            $table->enum('acak_jawaban',['Y','N']);
+            $table->enum('tampilan_hasil',['Y','N']);
             $table->timestamps();
         });
     }
